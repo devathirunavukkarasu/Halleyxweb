@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="layout.css" />
+  </head>
+
+  <body>
+    <div class="form-designer">
+      <div class="left-side">
+        <div id="menu"></div>
+      </div>
+      <div class="right-side">
+        <div class="publish-preview">
+          <button class="publish">Publish</button>
+          <button class="preview" onclick="showPreview()">Preview</button>
+        </div>
+        <div
+          class="right-side-border"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+    </div>
+
+    <script>
+
+      $(function () {
+        $("#menu").load("menu.html");
+      });
+
+      function showPreview(){
+        document.getElementsByTagName('body')[0].classList.add('preview-mode');
+      }
+
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text/html", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text/html");
+        console.log(data)
+        if (data == "layout") {
+          ev.target.innerHTML = `
+          <div class="dragged-layout">
+            <div class='left-top-main-layer'>
+              <div class='left-top-layer'>
+              </div>
+              <div class='left-bottom-layer'>
+              </div>
+            </div>
+            <div class='right-top-main-layer'>
+              <div class='right-top-layer'>
+              </div>
+              <div class='right-bottom-layer'>
+              </div>
+            </div>
+            </div>
+          `;
+        }else if(data == 'lable'){
+          // ev.target.innerHTML = '<input class="dragged-lable" placeholder="Enter the label" />';
+          let lable = document.createElement("input");
+          lable.setAttribute('class','dragged-lable');
+          lable.setAttribute('placeholder','Enter the label');
+          ev.target.append(lable);
+        }else if(data == 'textbox'){
+          let lable = document.createElement("input");
+          lable.setAttribute('class','dragged-textbox');
+          lable.setAttribute('placeholder','Enter the text');
+          ev.target.append(lable);
+        }
+        
+        else if(data == 'button'){
+          let lable = document.createElement("button");
+          lable.innerHTML = 'Save'
+          lable.setAttribute('class','dragged-button');
+          ev.target.append(lable);
+        }        
+        else if(data == 'checkbox'){
+          select.classList.add('check-btn');
+          let lable = document.createElement("input");
+          lable.setAttribute('type','checkbox');
+          lable.setAttribute('class','dragged-checkbox');
+          ev.target.append(lable);
+          let checkboxlable = document.createElement("label");
+          checkboxlable.innerText='Mr.'
+          ev.target.append(checkboxlable);
+          let lable2 = document.createElement("input");
+          lable2.setAttribute('type','checkbox');
+          lable2.setAttribute('class','dragged-checkbox');
+          ev.target.append(lable2);
+          let checkboxlable2 = document.createElement("label");
+          checkboxlable2.innerText='Mrs.'
+          ev.target.append(checkboxlable2);
+          let labl3 = document.createElement("input");
+          labl3.setAttribute('type','checkbox');
+          labl3.setAttribute('class','dragged-checkbox');
+          ev.target.append(labl3);
+          let checkboxlable3 = document.createElement("label");
+          checkboxlable3.innerText='Miss.'
+          ev.target.append(checkboxlable3);
+        }
+        else if (data == 'radio') {
+  let radioMale = document.createElement("input");
+  radioMale.setAttribute('type', 'radio');
+  radioMale.setAttribute('class', 'dragged-radio');
+  radioMale.setAttribute('name', 'gender'); // Add the 'name' attribute
+  ev.target.append(radioMale);
+
+  let labelMale = document.createElement("label");
+  labelMale.innerText = 'Male';
+  ev.target.append(labelMale);
+
+  let radioFemale = document.createElement("input");
+  radioFemale.setAttribute('type', 'radio');
+  radioFemale.setAttribute('class', 'dragged-radio');
+  radioFemale.setAttribute('name', 'gender'); // Add the 'name' attribute
+  ev.target.append(radioFemale);
+
+  let labelFemale = document.createElement("label");
+  labelFemale.innerText = 'Female';
+  ev.target.append(labelFemale);
+
+  let radioNotPrefer = document.createElement("input");
+  radioNotPrefer.setAttribute('type', 'radio');
+  radioNotPrefer.setAttribute('class', 'dragged-radio');
+  radioNotPrefer.setAttribute('name', 'gender'); // Add the 'name' attribute
+  ev.target.append(radioNotPrefer);
+
+  let labelNotPrefer = document.createElement("label");
+  labelNotPrefer.innerText = 'Not prefer';
+  ev.target.append(labelNotPrefer);
+}
+
+else if(data == 'image'){
+          let labl3 = document.createElement("img");
+          labl3.setAttribute('src','halleyx-logo.png');
+          labl3.setAttribute('width','56px');
+          labl3.setAttribute('height','42px');
+          labl3.style.marginLeft = "5px";
+          labl3.style.marginTop = "7px";
+         
+
+          
+          ev.target.append(labl3);
+        }
+        else if(data == 'link'){
+          let labl3 = document.createElement("a");
+          labl3.setAttribute('href','test');
+          labl3.innerText='100 Gandi nagar, nagai'
+          ev.target.append(labl3);
+        }
+        else if (data == 'select') {
+  let select = document.createElement("select");
+  select.classList.add('radio-btn');
+  
+
+  select.innerHTML = `<option value="Veg">Vegetarian Meal</option>
+                      <option value="Non">Non-Vegetarian Meal</option>
+                      <option value="Fast">Fast Food</option>`;
+  ev.target.append(select);
+}
+
+        else if(data == 'break'){
+          let br = document.createElement("br");
+          ev.target.append(br);
+        }
+        else if (data == "table") {
+    // Create a table element
+    let table = document.createElement("table");
+    table.setAttribute('class', 'dragged-table');
+    let tbody = document.createElement("tbody");
+
+    // Create a 2x3 table (2 rows and 3 columns)
+    for (let i = 0; i < 2; i++) {
+      let row = document.createElement("tr");
+      for (let j = 0; j < 3; j++) {
+        let cell = document.createElement(i === 0 ? "th" : "td");
+        cell.setAttribute("contenteditable", "true");
+        // cell.innerText = " " + (j + 1);
+        row.appendChild(cell);
+      }
+      tbody.appendChild(row);
+    }
+
+    table.appendChild(tbody);
+    ev.target.append(table);
+  }
+}
+
+
+
+
+
+
+      
+    </script>
+  </body>
+</html>

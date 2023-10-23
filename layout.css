@@ -1,0 +1,323 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button{
+    cursor: pointer;
+}
+
+.form-designer {
+    display: flex;
+    height: 80vh;
+}
+
+.app-title {
+    font-size: 21px;
+    padding: 20px 0 0 0;
+}
+
+.right-side {
+    padding: 10px;
+    width: 65%;
+    height: 84vh;
+}
+
+.right-side-border {
+    border: 1px solid #4B527E;
+    width: 130%;
+    padding: 2px;
+    height: 88vh;
+}
+.publish-preview{
+    display: flex;
+    justify-content:end;
+    gap: 10px;
+    padding-bottom: 10px ;
+}
+
+
+.publish,.preview {
+    padding: 8px 29px;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    background-color: white;
+    border: 1px solid #2E4374;
+    border-radius:1px;
+    font-size: 12px;
+}
+.preview:hover{
+        background-color:#7C81AD ;
+        color: white;
+}
+.publish{
+    
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s, color 0.3s;
+      
+}
+.publish:hover {
+    background-color:#7C81AD;
+    color: white;
+  }
+.dragged-layout{
+    height: 86vh;
+    width:  99%;
+    border: 1px solid #E5C3A6;
+    margin: 4px;
+    display: flex;
+}
+
+.left-top-main-layer{
+    height: 86vh;
+    
+    flex-basis: 63%;    
+    border-right: 1px solid #E5C3A6;
+}
+.left-top-layer{
+    height: 8vh;
+    width: 100%;
+    border-bottom: 1px solid #E5C3A6;
+
+    
+}
+.left-bottom-layer{
+    height: 76vh;
+    width: 100%;
+
+}
+
+.right-top-main-layer{
+    flex-basis: 50%;
+}
+
+.right-top-layer{
+    height: 76vh;
+    width: 99%;
+    border-bottom: 1px solid #E5C3A6;
+}
+
+.right-bottom-layer{
+    height: 6vh;
+    width: 99%;
+}
+
+
+.dragged-lable {
+    border: none;
+    margin: 10px;
+    padding: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.dragged-lable::placeholder{
+    text-transform:capitalize;
+}
+.dragged-textbox{
+    margin: 7px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: #f4f4f4;
+    transition: border-color 0.3s;
+    text-transform: capitalize;
+    font-weight:400;
+}
+.dragged-textbox::placeholder {
+    color: #aaa;
+    padding-left:8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    
+    
+  }
+  .dragged-textbox:hover{
+    border-color: #2E4374;
+  }
+.dragged-textbox:focus{
+    border-color: #2E4374;
+   
+    
+}
+
+.dragged-checkbox{
+    width: 20px;
+    height: 12px;
+    
+    margin: 13px;
+    margin-left: 8px;
+    padding: 10px;
+    
+    
+}
+  
+.radio-btn{
+    margin: 7px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 320px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px; 
+    border:2px solid black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   color: black;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 450;
+    /* padding-left: 10px; */
+    
+
+    
+}
+.radio-btn:hover{
+    border-radius: 3px;
+    border-color: #2E4374;
+}
+.radio-btn:focus{
+    border-radius: 3px;
+    border-color:  #2E4374;
+    padding-right: 10px;
+    /* padding-left: 8px; */
+    
+
+}
+.radio-btn:focus{
+    padding-left:10px;
+}
+
+input[type=checkbox]{
+    transform: scale(1.5);
+    border: 1px solid ;
+    border-radius: 2px;
+    
+    
+}
+
+.dragged-radio {
+  width: 20px;
+  height: 14px;
+  margin-right: 8px;
+  
+}
+
+  
+.test{
+    margin-left:10px ;
+    padding-left: 10px;
+}
+
+
+.dragged-image{
+    margin:20px;
+    padding: 20px;
+}
+
+
+ 
+input.dragged-lable:focus {
+    outline-width: 0;
+}
+
+
+.dragged-button{
+    padding: 5px 36px;
+    margin: 10px;
+    border: 2px solid #2E4374;
+    border-radius: 2px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.dragged-button:hover{
+    background-color:#7C81AD;
+    border: 2px solid  #2E4374;
+    border-radius: 3px;
+    color: white;
+}
+
+
+
+
+
+.preview-mode .right-top-layer{
+    border-bottom: none;
+}
+
+.preview-mode .left-top-layer{
+    border-bottom: none;
+}
+
+.preview-mode .left-top-main-layer{
+    border-right: none;
+}
+
+.preview-mode .dragged-layout{
+    border: none;
+}
+/* Add this CSS to your existing CSS file */
+
+/* Table styling */
+/* Table styling with gap between borders */
+/* Table styling with fixed dimensions */
+.dragged-table {
+    /* width: 100px; Set a fixed width */
+    /* table-layout: fixed; */
+    margin-top: -70px ;
+    margin-left: 315px;
+    margin-right: 20px;
+    border-collapse: separate;
+    border-spacing: 4px; /* Adjust the gap as needed */
+  }
+  
+  .dragged-table th,
+  .dragged-table td {
+    width: 100px; /* Set a fixed width for cells */
+    border: 2px solid #000;
+    border-radius: 1px;
+    padding: 8px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    text-transform: capitalize;
+  }
+  
+  .dragged-table th {
+    
+    font-weight: bold;
+    height: 25px;
+    font-size: 14px;
+  }
+  .dragged-table td {
+    height: 45px;
+    font-size: 12px;
+  }
+  .dragged-table th:hover{
+    border-color:  #2E4374;
+  }
+  .dragged-table th:focus{
+    border-color:  #2E4374;
+  }
+  .dragged-table td:hover{
+    border-color:  #2E4374;
+  }
+  .dragged-table td:focus{
+    border-color:  #2E4374;
+  }
+  /* Add more CSS rules as needed for your specific styling preferences */
+  
+  
